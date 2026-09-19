@@ -1,6 +1,6 @@
 # Darukaa.Earth — AI-Powered Biodiversity Intelligence Assistant
 
-Darukaa.Earth is an AI-powered environmental intelligence assistant that analyzes environmental conditions and provides evidence-backed recommendations for improving soil health, biodiversity, water availability, and habitat quality.
+Darukaa.Earth is an environmental intelligence assistant that combines structured environmental inputs, scientific knowledge retrieval, biodiversity data, and multi-metric reasoning to provide evidence-backed recommendations for improving soil health, biodiversity, water availability, and habitat quality.
 
 ## Features
 
@@ -19,7 +19,7 @@ Darukaa.Earth is an AI-powered environmental intelligence assistant that analyze
 
 ## Multi-Metric Reasoning
 
-The system connects multiple environmental variables to identify relationships between environmental conditions, instead of evaluating each one in isolation.
+The system connects multiple environmental variables to identify linked environmental relationships instead of evaluating each condition in isolation.
 
 ```
 Soil Carbon → Water Retention → Crop Resilience → Biodiversity
@@ -69,6 +69,8 @@ Relevant Knowledge
 Environmental Reasoning
 ```
 
+The current prototype uses a structured knowledge base containing summarized environmental knowledge from FAO and IPBES.
+
 The knowledge base covers:
 
 - Soil Organic Carbon
@@ -84,7 +86,7 @@ The knowledge base covers:
 
 ## Biodiversity Integration
 
-The system integrates GBIF biodiversity occurrence data to provide regional biodiversity context.
+The system integrates the GBIF API to retrieve biodiversity occurrence data and provide regional biodiversity context based on the selected country.
 
 Retrieved information includes:
 
@@ -93,13 +95,13 @@ Retrieved information includes:
 - Unique species in the sample
 - Sample species names
 
-Note: GBIF species counts are used as regional biodiversity context and are not treated as site-specific species richness for the user's land.
+Note: The current implementation uses country-level GBIF occurrence data. These species counts are used as regional biodiversity context and are not treated as site-specific species richness for the user's land.
 
 ## How It Works
 
 1. **User input** — The user provides environmental data (soil carbon, rainfall, temperature, moisture, land use, country) and asks a question in plain language.
 2. **Problem detection** — The system checks the values against defined thresholds to identify stressors such as low soil carbon, water stress, or low habitat diversity.
-3. **Multi-metric reasoning** — Detected problems are connected into cause-and-effect chains rather than treated separately.
+3. **Multi-metric reasoning** — Detected problems are connected through linked environmental relationships rather than treated separately.
 4. **Knowledge retrieval** — The system searches its scientific knowledge base (FAO, IPBES) for the most relevant information.
 5. **Biodiversity context** — The system queries GBIF for regional biodiversity occurrence data based on the country provided.
 6. **Recommendation** — All of the above is combined into a single response containing the detected problems, recommendations, reasoning, impacted metrics, confidence level, time horizon, and sources.
